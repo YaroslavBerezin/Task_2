@@ -28,9 +28,15 @@ public class Main {
         System.out.print("Z: ");
         int z2 = readNum();
 
-        if (((x1 > x2) && (y1 > y2) && (z1 > z2)) || ((x1 > x2) && (y1 > z2) && (z1 > y2)) || ((y1 > y2) && (x1 > z2) && (z1 > x2)) || ((z1 > z2) && (x1 > y2) && (y1 > x2))) {
+        if (((x1 > x2) && (y1 > y2) && (z1 > z2)) ||
+                ((x1 > x2) && (y1 > z2) && (z1 > y2)) ||
+                ((y1 > y2) && (x1 > z2) && (z1 > x2)) ||
+                ((z1 > z2) && (x1 > y2) && (y1 > x2))) {
             System.out.println("The second box is placed in the first");
-        } else if (((x2 > x1) && (y2 > y1) && (z2 > z1)) || ((x2 > x1) && (y2 > z1) && (z2 > y1)) || ((y2 > y1) && (x2 > z1) && (z2 > x1)) || ((z2 > z1) && (x2 > y1) && (y2 > x1))) {
+        } else if (((x2 > x1) && (y2 > y1) && (z2 > z1)) ||
+                ((x2 > x1) && (y2 > z1) && (z2 > y1)) ||
+                ((y2 > y1) && (x2 > z1) && (z2 > x1)) ||
+                ((z2 > z1) && (x2 > y1) && (y2 > x1))) {
             System.out.println("The first box is placed in the second");
         } else {
             System.out.println("It's impossible to place one box in another");
