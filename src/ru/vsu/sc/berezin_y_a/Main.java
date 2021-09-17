@@ -27,9 +27,9 @@ public class Main {
     }
 
     public enum states{
-        secondInFirst,
-        firstInSecond,
-        boxesAreDifferent;
+        SECONDINFIRST,
+        FIRSTINSECOND,
+        BOXESAREDIFFERENT;
     }
 
     static void printSomething(String text) {
@@ -47,21 +47,21 @@ public class Main {
                 ((x1 > x2) && (y1 > z2) && (z1 > y2)) ||
                 ((y1 > y2) && (x1 > z2) && (z1 > x2)) ||
                 ((z1 > z2) && (x1 > y2) && (y1 > x2))) {
-            return (states.secondInFirst);
+            return (states.SECONDINFIRST);
         } else if (((x2 > x1) && (y2 > y1) && (z2 > z1)) ||
                 ((x2 > x1) && (y2 > z1) && (z2 > y1)) ||
                 ((y2 > y1) && (x2 > z1) && (z2 > x1)) ||
                 ((z2 > z1) && (x2 > y1) && (y2 > x1))) {
-            return (states.firstInSecond);
+            return (states.FIRSTINSECOND);
         } else {
-            return (states.boxesAreDifferent);
+            return (states.BOXESAREDIFFERENT);
         }
     }
 
     static String getStringKnowingState(states state) {
-        if (state == states.secondInFirst) {
+        if (state == states.SECONDINFIRST) {
             return ("The second box is in the first");
-        } else if (state == states.firstInSecond) {
+        } else if (state == states.FIRSTINSECOND) {
             return ("The first box is in the second");
         } else {
             return ("Boxes are different");
