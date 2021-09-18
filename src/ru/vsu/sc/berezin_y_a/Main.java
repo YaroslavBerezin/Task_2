@@ -14,7 +14,7 @@ public class Main {
         int sideZ1 = readNum("Z: ");
         checkNum(sideZ1);
 
-        printSomething("Enter sizes of the first box: ");
+        printSomething("Enter sizes of the second box: ");
         int sideX2 = readNum("X: ");
         checkNum(sideX1);
         int sideY2 = readNum("Y: ");
@@ -69,15 +69,9 @@ public class Main {
 
     private static void printStringKnowingState(states state) {
         switch (state) {
-            case SECONDINFIRST:
-                System.out.println("The second box is in the first");
-                break;
-            case FIRSTINSECOND:
-                System.out.println("The first box is in the second");
-                break;
-            case BOXESAREDIFFERENT:
-                System.out.println("Boxes are different");
-                break;
+            case SECONDINFIRST -> System.out.println("The second box is in the first");
+            case FIRSTINSECOND -> System.out.println("The first box is in the second");
+            case BOXESAREDIFFERENT -> System.out.println("Boxes are different");
         }
     }
 
