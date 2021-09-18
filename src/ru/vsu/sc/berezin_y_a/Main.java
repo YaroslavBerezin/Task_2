@@ -22,7 +22,9 @@ public class Main {
         int sideZ2 = readNum("Z: ");
         checkNum(sideZ1);
 
-        getStringKnowingState(checkPlacementOfBoxes(sideX1, sideY1, sideZ1, sideX2, sideY2, sideZ2));
+        states state = checkPlacementOfBoxes(sideX1, sideY1, sideZ1, sideX2, sideY2, sideZ2);
+
+        printStringKnowingState(state);
 
     }
 
@@ -42,6 +44,13 @@ public class Main {
         return (scanner.nextInt());
     }
 
+    private static void checkNum(int num) {
+        if (num < 0) {
+            System.out.println("Error, the side can't be less than 0");
+            System.exit(0);
+        }
+    }
+
     private static states checkPlacementOfBoxes(int x1, int y1, int z1, int x2, int y2, int z2) {
         if (((x1 > x2) && (y1 > y2) && (z1 > z2)) ||
                 ((x1 > x2) && (y1 > z2) && (z1 > y2)) ||
@@ -58,21 +67,17 @@ public class Main {
         }
     }
 
-    private static void getStringKnowingState(states state) {
+    private static void printStringKnowingState(states state) {
         switch (state) {
             case SECONDINFIRST:
                 System.out.println("The second box is in the first");
+                break;
             case FIRSTINSECOND:
                 System.out.println("The first box is in the second");
+                break;
             case BOXESAREDIFFERENT:
                 System.out.println("Boxes are different");
-        }
-    }
-
-    private static void checkNum(int num) {
-        if (num < 0) {
-            System.out.println("Error, the side can't be less than 0");
-            System.exit(0);
+                break;
         }
     }
 
