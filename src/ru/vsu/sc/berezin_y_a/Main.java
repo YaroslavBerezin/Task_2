@@ -22,16 +22,10 @@ public class Main {
         int sideZ2 = readNum("Z: ");
         checkNum(sideZ1);
 
-        states state = checkPlacementOfBoxes(sideX1, sideY1, sideZ1, sideX2, sideY2, sideZ2);
+        States state = checkPlacementOfBoxes(sideX1, sideY1, sideZ1, sideX2, sideY2, sideZ2);
 
         printStringKnowingState(state);
 
-    }
-
-    private enum states{
-        SECONDINFIRST,
-        FIRSTINSECOND,
-        BOXESAREDIFFERENT;
     }
 
     private static void printSomething(String text) {
@@ -51,27 +45,27 @@ public class Main {
         }
     }
 
-    private static states checkPlacementOfBoxes(int x1, int y1, int z1, int x2, int y2, int z2) {
+    private static States checkPlacementOfBoxes(int x1, int y1, int z1, int x2, int y2, int z2) {
         if (((x1 > x2) && (y1 > y2) && (z1 > z2)) ||
                 ((x1 > x2) && (y1 > z2) && (z1 > y2)) ||
                 ((y1 > y2) && (x1 > z2) && (z1 > x2)) ||
                 ((z1 > z2) && (x1 > y2) && (y1 > x2))) {
-            return (states.SECONDINFIRST);
+            return (States.SECOND_IN_FIRST);
         } else if (((x2 > x1) && (y2 > y1) && (z2 > z1)) ||
                 ((x2 > x1) && (y2 > z1) && (z2 > y1)) ||
                 ((y2 > y1) && (x2 > z1) && (z2 > x1)) ||
                 ((z2 > z1) && (x2 > y1) && (y2 > x1))) {
-            return (states.FIRSTINSECOND);
+            return (States.FIRST_IN_SECOND);
         } else {
-            return (states.BOXESAREDIFFERENT);
+            return (States.BOXES_ARE_DIFFERENT);
         }
     }
 
-    private static void printStringKnowingState(states state) {
+    private static void printStringKnowingState(States state) {
         switch (state) {
-            case SECONDINFIRST -> System.out.println("The second box is in the first");
-            case FIRSTINSECOND -> System.out.println("The first box is in the second");
-            case BOXESAREDIFFERENT -> System.out.println("Boxes are different");
+            case SECOND_IN_FIRST -> System.out.println("The second box is in the first");
+            case FIRST_IN_SECOND -> System.out.println("The first box is in the second");
+            case BOXES_ARE_DIFFERENT -> System.out.println("Boxes are different");
         }
     }
 
