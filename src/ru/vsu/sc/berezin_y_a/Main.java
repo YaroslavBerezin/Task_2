@@ -6,7 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        printSomething("Enter sizes of the first box: ");
+        System.out.println("Enter sizes of the first box: ");
+
         int sideX1 = readNum("X: ");
         checkNum(sideX1);
         int sideY1 = readNum("Y: ");
@@ -14,7 +15,8 @@ public class Main {
         int sideZ1 = readNum("Z: ");
         checkNum(sideZ1);
 
-        printSomething("Enter sizes of the second box: ");
+        System.out.println("Enter sizes of the second box: ");
+
         int sideX2 = readNum("X: ");
         checkNum(sideX1);
         int sideY2 = readNum("Y: ");
@@ -26,10 +28,6 @@ public class Main {
 
         printStringKnowingState(state);
 
-    }
-
-    private static void printSomething(String text) {
-        System.out.println(text);
     }
 
     private static int readNum(String text) {
