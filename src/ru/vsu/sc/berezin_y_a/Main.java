@@ -24,7 +24,7 @@ public class Main {
         int sideZ2 = readNum("Z: ");
         checkNum(sideZ1);
 
-        States state = checkPlacementOfBoxes(sideX1, sideY1, sideZ1, sideX2, sideY2, sideZ2);
+        State state = checkPlacementOfBoxes(sideX1, sideY1, sideZ1, sideX2, sideY2, sideZ2);
 
         printStringKnowingState(state);
 
@@ -43,23 +43,23 @@ public class Main {
         }
     }
 
-    private static States checkPlacementOfBoxes(int x1, int y1, int z1, int x2, int y2, int z2) {
+    private static State checkPlacementOfBoxes(int x1, int y1, int z1, int x2, int y2, int z2) {
         if (((x1 > x2) && (y1 > y2) && (z1 > z2)) ||
                 ((x1 > x2) && (y1 > z2) && (z1 > y2)) ||
                 ((y1 > y2) && (x1 > z2) && (z1 > x2)) ||
                 ((z1 > z2) && (x1 > y2) && (y1 > x2))) {
-            return (States.SECOND_IN_FIRST);
+            return (State.SECOND_IN_FIRST);
         } else if (((x2 > x1) && (y2 > y1) && (z2 > z1)) ||
                 ((x2 > x1) && (y2 > z1) && (z2 > y1)) ||
                 ((y2 > y1) && (x2 > z1) && (z2 > x1)) ||
                 ((z2 > z1) && (x2 > y1) && (y2 > x1))) {
-            return (States.FIRST_IN_SECOND);
+            return (State.FIRST_IN_SECOND);
         } else {
-            return (States.BOXES_ARE_DIFFERENT);
+            return (State.BOXES_ARE_DIFFERENT);
         }
     }
 
-    private static void printStringKnowingState(States state) {
+    private static void printStringKnowingState(State state) {
         switch (state) {
             case SECOND_IN_FIRST -> System.out.println("The second box is in the first");
             case FIRST_IN_SECOND -> System.out.println("The first box is in the second");
